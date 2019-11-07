@@ -1,0 +1,82 @@
+﻿<Window x:Class="Numerical_image1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Numerical_image1"
+        mc:Ignorable="d"
+        Title="图像变形" Height="450" Width="860">
+    <Grid Margin="0,0,-8,-31" Background="Lavender">
+        <TabControl HorizontalAlignment="Left" Height="445" Margin="0,10,0,0" VerticalAlignment="Top" Width="852">
+            <TabItem Header="扭曲变换">
+                <Grid Background="AntiqueWhite" Margin="0,0,0,-20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="71*"/>
+                        <ColumnDefinition Width="715*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="变换" HorizontalAlignment="Left" Margin="529,20,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="Trans_Btn_Click" Name="Trans_Btn" Background="LightCyan" FontFamily="Kristen ITC" Grid.Column="1"/>
+                    <Image HorizontalAlignment="Left" Height="240" Margin="45,80,0,0" VerticalAlignment="Top" Width="240" Name="THUImage" MouseDown="origin_mouse" Grid.ColumnSpan="2"/>
+                    <Image HorizontalAlignment="Left" Height="240" Margin="254,80,0,0" VerticalAlignment="Top" Width="240" Name="trans_THUImage" MouseDown="Save_Image" Grid.Column="1" />
+                    <ComboBox HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" Width="140" Name="combo_change" Text="变换方式" Grid.Column="1" />
+                    <ComboBox HorizontalAlignment="Left" Margin="309,20,0,0" VerticalAlignment="Top" Width="140" x:Name="combo_method" Text="插值函数" Grid.Column="1"/>
+                    <Label Content="变换方式：" HorizontalAlignment="Left" Margin="25,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"  />
+                    <Label Content="插值函数：" HorizontalAlignment="Left" Margin="224,20,0,0" VerticalAlignment="Top" Grid.Column="1"  />
+                    <Grid HorizontalAlignment="Left" Height="150" Margin="539,80,0,0" VerticalAlignment="Top" Width="180" Background="Lavender" Grid.Column="1">
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,20,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="50" Name="angel"/>
+                        <Label Content="角度" HorizontalAlignment="Left" Margin="15,20,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,50,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" Name="radius"/>
+                        <Label Content="半径" HorizontalAlignment="Left" Margin="15,50,0,0" VerticalAlignment="Top"/>
+                        <Label Content="旋转参数" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <RadioButton Content="顺时针" HorizontalAlignment="Left" Margin="15,85,0,0" VerticalAlignment="Top" Name="radio_clock" GroupName="clock"/>
+                        <RadioButton Content="逆时针" HorizontalAlignment="Left" Margin="100,85,0,0" VerticalAlignment="Top" Name="radio_anticlock" GroupName="clock"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="35,123,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="40" Name="center_x" InputMethod.IsInputMethodEnabled="False" />
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="105,123,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="40" Name ="center_y"/>
+                        <Label Content="旋转中心" HorizontalAlignment="Left" Margin="5,100,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label Content="x:" HorizontalAlignment="Left" Margin="15,120,0,0" VerticalAlignment="Top"/>
+                        <Label Content="y:" HorizontalAlignment="Left" Margin="85,120,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Label Content="原图像" HorizontalAlignment="Left" Margin="64,330,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Label Content="变换图像" HorizontalAlignment="Left" Margin="344,330,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Grid HorizontalAlignment="Left" Height="90" Margin="539,250,0,0" VerticalAlignment="Top" Width="180" Background="Lavender" Grid.Column="1" >
+                        <Label Content="畸变参数" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,30,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" Name="radius_2"/>
+                        <Label Content="半径" HorizontalAlignment="Left" Margin="15,30,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Content="桶形畸变" HorizontalAlignment="Left" Margin="15,65,0,0" VerticalAlignment="Top" Name="Barrel"/>
+                        <RadioButton Content="枕形畸变" HorizontalAlignment="Left" Margin="95,65,0,0" VerticalAlignment="Top" Name="Pincushion"/>
+                    </Grid>
+                    <Button Content="保存" HorizontalAlignment="Left" Margin="649,20,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="Save_Btn_Click" x:Name="Save_Btn_Copy" Background="LightCyan" FontFamily="Kristen ITC" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="人脸变形">
+                <Grid Background="AntiqueWhite" Margin="0,-34,0,0">
+
+                    <Grid HorizontalAlignment="Left" Height="290" Margin="30,100,0,0" VerticalAlignment="Top" Width="610" Background="Cornsilk">
+                        <Label Content="原图" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                        <Image HorizontalAlignment="Left" Height="200" Margin="30,80,0,0" VerticalAlignment="Top" Width="200" Name="Image_face_ori1" MouseDown="Source_1_upload"/>
+                        <Image HorizontalAlignment="Left" Height="200" Margin="380,80,0,0" VerticalAlignment="Top" Width="200" Name="Image_face_resul" MouseDown="Save_newface"/>
+                        <Image HorizontalAlignment="Left" Height="100" Margin="260,115,0,0" VerticalAlignment="Top" Width="100" Name="Image_face_trans"/>
+                        <Label Content="效果图" HorizontalAlignment="Left" Margin="450,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="50" Margin="30,35,0,0" VerticalAlignment="Top" Width="610" Background="AliceBlue">
+                        <Button Content="变换" HorizontalAlignment="Left" Margin="300,13,0,0" VerticalAlignment="Top" Width="75" Background="LightCyan" Click="Trans_face_btn" Height="28"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="110,19,0,0" VerticalAlignment="Top" Width="150" Name="My_combo3"/>
+                        <Label Content="插值方法:" HorizontalAlignment="Left" Margin="26,16,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" />
+                        <Button Content="关键点显示/消除" HorizontalAlignment="Left" Margin="480,13,0,0" VerticalAlignment="Top" Width="120" Background="LightCyan" Click="Point_show_btn" Height="28"/>
+                        <Button Content="保存" HorizontalAlignment="Left" Margin="390,13,0,0" VerticalAlignment="Top" Width="75" Background="LightCyan" Click="Save_face_btn" Height="28"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="290" Margin="655,100,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.24,0.7" Background="Cornsilk">
+                        <Image HorizontalAlignment="Left" Height="180" Margin="10,80,-13,0" VerticalAlignment="Top" Width="160" Name="Image_face_ori2" MouseDown="Source_2_upload"/>
+                        <Label Content="目标人脸" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="50" Margin="655,35,0,0" VerticalAlignment="Top" Width="180" Background="AliceBlue">
+                        <Label Content="函数耗时：" HorizontalAlignment="Left" Margin="15,14,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="s" HorizontalAlignment="Left" Margin="136,14,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Label Content=" " HorizontalAlignment="Left" Margin="90,14,0,0" VerticalAlignment="Top" Name="Functiontime" FontSize="14" FontWeight="Bold"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
