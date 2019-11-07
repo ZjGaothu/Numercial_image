@@ -38,7 +38,7 @@
 ### 运行程序
 - 双击`bin/Realease/`文件夹下的`Numercial_image1.exe`，便可以运行程序，获得如下所示的初始界面：
 
-  ![avatar](./mdimages/1-1.png)
+  ![morphing](./mdimages/1-1.png)
 ### 扭曲变换
 
 #### 参数说明
@@ -52,18 +52,18 @@
 #### 扭曲变换
 - 点击CLICK区域上传图片，选择变换方式为扭曲变换，选择插值函数，选择好参数后点击变换
 
-    ![avatar](./mdimages/1-2.png)
+    ![morphing](./mdimages/1-2.png)
 - 点击**保存**，或者**点击图片**，可以将图片保存至本地
 
   <img src="./mdimages/1-3.png" width="400px" />
 
 #### 畸变校正
 - 选取变换方式为**畸变校正**，选择桶形畸变，选择插值函数为**双三次插值**，设置半径，点击变换
-    ![avatar](./mdimages/1-4.png)
+    ![morphing](./mdimages/1-4.png)
 
 ### 人脸变形
 - 点击分页设置的**人脸变形**，进入到人脸变形界面
-    ![avatar](./mdimages/1-5.png)
+    ![morphing](./mdimages/1-5.png)
 
 #### 参数说明
 
@@ -75,5 +75,5 @@
 
 #### 变形操作
 - 点击CLICK上载图片，并选择插值方法为`双三次插值`，点击显示关键点，后点击**保存**
-    ![avatar](./mdimages/1-6.png)
+    ![morphing](./mdimages/1-6.png)
 
